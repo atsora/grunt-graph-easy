@@ -50,7 +50,7 @@ module.exports = function (grunt) {
           format = options.format;
         }
         else {
-          format = path.extname().replace(/^\./, '');
+          format = path.extname(dest).replace(/^\./, '');
         }
         grunt.log.writeln('Convert ' + src + ' into ' + dest + ' with format ' + format);
         run(unixifyPath(src), dest, format);
