@@ -1,7 +1,7 @@
 {
   "name": "grunt-graph-easy",
   "description": "Use graph-easy to convert text graphs into images",
-  "version": "1.0.1",
+  "version": "0.0.1",
   "homepage": "https://github.com/lemoineat",
   "author": {
     "name": "Lemoine Automation Technologies, Nicolas Relange",
