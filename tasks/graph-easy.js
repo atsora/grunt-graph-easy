@@ -10,7 +10,7 @@ module.exports = function (grunt) {
 
   var path = require('path');
 
-  grunt.registerMultiTask('graph-easy', 'Use graph-easy to convert text graphs into images', function () {
+  grunt.registerMultiTask('grapheasy', 'Use graph-easy to convert text graphs into images', function () {
     var done = this.async();
 
     var options = this.options();
