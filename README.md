@@ -39,7 +39,7 @@ Type: `String`
 
 Output format: `ascii`, `png`
 
-Default: `ascii`
+Default: guess it from destination file suffix
 
 
 #### grapheasy

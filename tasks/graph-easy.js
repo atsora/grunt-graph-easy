@@ -14,20 +14,10 @@ module.exports = function (grunt) {
     var done = this.async();
 
     var options = this.options();
-    var format = options.format;
 
-    var run = function (graphFile, destination) {
-      var src;
-      if (grunt.file.isPathAbsolute(graphFile)) {
-        src = path.basename(graphFile);
-      }
-      else {
-        src = graphFile
-      }
-      var imageFile = src.replace(/\.[^.]+$/, '.' + format);
-      var imagePath = path.join(destination, imageFile);
-
-      grunt.file.mkdir(destination);
+    var run = function (src, dest, format) {
+      var directory = path.dirname(dest);
+      grunt.file.mkdir(directory);
 
       var runDone = function (error, result, code) {
         if (error) {
@@ -37,15 +27,14 @@ module.exports = function (grunt) {
           grunt.fail.warn('graph-easy error');
         }
         else {
-          grunt.log.ok(imagePath + ' was successfully created');
+          grunt.log.ok(dest + ' was successfully created from ' + src);
           grunt.verbose.writeln(result);
           done();
         }
       }
 
-      grunt.verbose.writeln('Image file path is  ' + imagePath);
-      grunt.log.writeln('Create ' + imageFile + ' into ' + destination);
-      var grapheasy_args = options.grapheasy.concat(['--input=' + graphFile, '--output=' + imagePath, '--as', format]);
+      grunt.log.writeln('Convert ' + src + ' into ' + dest + ' with format ' + format);
+      var grapheasy_args = options.grapheasy.concat(['--input=' + src, '--output=' + dest, '--as', format]);
       grunt.log.writeln('graph-easy ' + ocamlbuild_args.join(' '));
       grunt.util.spawn({
         cmd: 'graph-easy',
@@ -54,13 +43,17 @@ module.exports = function (grunt) {
     }
 
     this.files.forEach(function (f) {
-      var destDirectory = unixifyPath(f.dest);
-      var graphFiles = f.src.filter(function (filepath) { return true; })
+      var dest = unixifyPath(f.dest);
 
-      graphFiles.forEach(function (source) {
-        var graphFile = unixifyPath(source);
-        grunt.verbose.writeln('Convert ' + graphFile + ' into ' + destDirectory + ' with format ' + format);
-        run(graphFile, destDirectory);
+      f.src.forEach(function (src) {
+        var format = undefined;
+        if (typeof (options.format) !== 'undefined') {
+          format = options.format;
+        }
+        else {
+          format = path.extname().replace(/^\./, '');
+        }
+        run(unixifyPath(src), dest, format);
       })
     });
 
