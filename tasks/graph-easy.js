@@ -33,7 +33,6 @@ module.exports = function (grunt) {
         }
       }
 
-      grunt.log.writeln('Convert ' + src + ' into ' + dest + ' with format ' + format);
       var grapheasy_args = options.grapheasy.concat(['--input=' + src, '--output=' + dest, '--as', format]);
       grunt.log.writeln('graph-easy ' + ocamlbuild_args.join(' '));
       grunt.util.spawn({
@@ -53,6 +52,7 @@ module.exports = function (grunt) {
         else {
           format = path.extname().replace(/^\./, '');
         }
+        grunt.log.writeln('Convert ' + src + ' into ' + dest + ' with format ' + format);
         run(unixifyPath(src), dest, format);
       })
     });
@@ -63,7 +63,8 @@ module.exports = function (grunt) {
   var unixifyPath = function (filepath) {
     if (process.platform === 'win32') {
       return filepath.replace(/\\/g, '/');
-    } else {
+    }
+    else {
       return filepath;
     }
   };
