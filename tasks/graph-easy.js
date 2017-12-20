@@ -34,7 +34,7 @@ module.exports = function (grunt) {
       }
 
       var grapheasy_args = (options.grapheasy || []).concat(['--input=' + src, '--output=' + dest, '--as', format]);
-      grunt.log.writeln('graph-easy ' + ocamlbuild_args.join(' '));
+      grunt.log.writeln('graph-easy ' + grapheasy_args.join(' '));
       grunt.util.spawn({
         cmd: 'graph-easy',
         args: grapheasy_args
