@@ -53,11 +53,10 @@ module.exports = function (grunt) {
         grunt.log.writeln('Convert ' + src + ' into ' + dest + ' with format ' + format);
         run(unixifyPath(src), dest, format);
       })
-
-      grunt.log.ok('All the graphs were successfully converted with graph-easy');
-      done();
     });
 
+    grunt.log.ok('All the graphs were successfully converted with graph-easy');
+    done();  
   });
 
 
