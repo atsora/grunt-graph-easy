@@ -1,7 +1,7 @@
 {
-  "name": "grunt-graph-easy",
+  "name": "@lemoineat/grunt-graph-easy",
   "description": "Use graph-easy to convert text graphs into images",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "homepage": "https://github.com/lemoineat",
   "author": {
     "name": "Lemoine Automation Technologies, Nicolas Relange",
@@ -32,7 +32,7 @@
     "graph-easy"
   ],
   "files": [
-    "tasks"
+    "tasks/**", "!.git/**", "!.gitignore", "!.gitattributes"
   ],
   "readmeFilename": "README.md"
 }
