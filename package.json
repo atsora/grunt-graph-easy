@@ -1,18 +1,18 @@
 {
-  "name": "@lemoineat/grunt-graph-easy",
+  "name": "@atsora/grunt-graph-easy",
   "description": "Use graph-easy to convert text graphs into images",
   "version": "1.0.1",
-  "homepage": "https://github.com/lemoineat",
-  "author": {
-    "name": "Lemoine Automation Technologies, Nicolas Relange",
-    "email": "nrelange@lemoinetechnologies.com"
-  },
+  "homepage": "https://github.com/atsora/grunt-graph-easy",
+  "contributors": [
+    "Lemoine Automation Technologies <nrelange@lemoinetechnologies.com>",
+    "Nicolas Relange <nicolas@atsora.eu>"
+  ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/lemoineat/grunt-graph-easy.git"
+    "url": "git://github.com/atsora/grunt-graph-easy.git"
   },
   "bugs": {
-    "url": "https://github.com/lemoineat/grunt-easy-graph/issues"
+    "url": "https://github.com/atsora/grunt-easy-graph/issues"
   },
   "license": "MIT",
   "engines": {
